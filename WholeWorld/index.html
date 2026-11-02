@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Countries of the World Quiz</title>
+    <link rel="stylesheet" href="WorldCountryQuizStyles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="app-header">
+        <div>
+          <h1>Countries of the World</h1>
+        </div>
+        <div class="stats" aria-label="Quiz status">
+          <div class="stat-block">
+            <span class="stat-label">Score</span>
+            <strong id="score">0 / 197</strong>
+          </div>
+          <div class="stat-block timer-block">
+            <span class="stat-label">Time left</span>
+            <strong id="timer">20:00</strong>
+          </div>
+        </div>
+      </header>
+
+      <section class="quiz-layout" aria-label="Country quiz">
+        <div class="map-panel">
+          <div class="panel-heading">
+            <span class="map-key"><span class="key-swatch"></span> Correct</span>
+            <div class="map-controls" role="group" aria-label="Map zoom controls">
+              <button id="zoom-out-btn" class="map-control-button" type="button" aria-label="Zoom out" title="Zoom out">−</button>
+              <output id="zoom-level" class="zoom-level" aria-live="polite">100%</output>
+              <button id="zoom-in-btn" class="map-control-button" type="button" aria-label="Zoom in" title="Zoom in">+</button>
+              <button id="zoom-reset-btn" class="map-control-button map-reset-button" type="button">Reset</button>
+            </div>
+          </div>
+          <p id="map-hint" class="map-hint">Scroll to zoom · Drag to pan</p>
+
+          <svg id="world-map" class="map" viewBox="0 0 1800 900" role="img" aria-label="World country quiz map" aria-describedby="map-description map-hint">
+            <desc id="map-description">Accurate country boundaries on a blue ocean. Each country changes color when its name is guessed.</desc>
+            <rect class="map-ocean" x="0" y="0" width="1800" height="900"></rect>
+            <g id="map-context" class="map-context"></g>
+            <g id="map-countries" class="map-countries"></g>
+          </svg>
+        </div>
+
+        <aside class="control-panel">
+          <form id="guess-form" class="guess-form">
+            <label for="guess-input">Country name</label>
+            <div class="input-row">
+              <input id="guess-input" name="guess" type="text" autocomplete="off" placeholder="e.g. Italy" required />
+              <button type="submit">Guess</button>
+            </div>
+          </form>
+          <p id="message" class="message" aria-live="polite">Every correct answer fills part of the map.</p>
+          <div class="rules">
+            <p><strong>How to play</strong></p>
+            <p>Type countries in any order. Common names and abbreviations are accepted.</p>
+          </div>
+          <button id="give-up-btn" class="give-up-button" type="button">Reveal answers</button>
+          <button id="map-play-again-btn" class="give-up-button hidden" type="button">Play again</button>
+        </aside>
+      </section>
+
+      <section id="missing-section" class="missing-section hidden" aria-live="polite">
+        <h2>Countries to review</h2>
+        <p id="missing-copy"></p>
+        <ul id="missing-list"></ul>
+      </section>
+    </main>
+
+    <section id="end-screen" class="end-screen hidden" role="dialog" aria-modal="true" aria-labelledby="end-title">
+      <div class="end-card">
+        <p class="eyebrow">Quiz complete</p>
+        <h2 id="end-title">Congratulations!</h2>
+        <p id="end-score">You named all 197 countries.</p>
+        <button id="play-again-btn" type="button">Play again</button>
+        <button id="exit-end-screen-btn" type="button">View map</button>
+      </div>
+    </section>
+
+    <script src="WorldCountryQuiz.js"></script>
+  </body>
+</html>

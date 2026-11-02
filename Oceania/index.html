@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Countries of Oceania Quiz</title>
+    <link rel="stylesheet" href="OceaniaQuizStyles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="app-header">
+        <div>
+          <h1>Countries of Oceania</h1>
+        </div>
+        <div class="stats" aria-label="Quiz status">
+          <div class="stat-block">
+            <span class="stat-label">Score</span>
+            <strong id="score">0 / 14</strong>
+          </div>
+          <div class="stat-block timer-block">
+            <span class="stat-label">Time left</span>
+            <strong id="timer">10:00</strong>
+          </div> 
+        </div>
+      </header>
+
+      <section class="quiz-layout" aria-label="Country quiz">
+        <div class="map-panel">
+          <div class="panel-heading">
+            <span class="map-key"><span class="key-swatch"></span> Correct</span>
+          </div>
+
+          <svg id="oceania-map" class="map" viewBox="0 0 1000 600" role="img" aria-label="Oceania country quiz map" aria-describedby="map-description">
+            <desc id="map-description">Accurate country boundaries on a blue ocean. Each country changes color when its name is guessed.</desc>
+            <rect class="map-ocean" x="0" y="0" width="1000" height="600"></rect>
+            <g id="map-context" class="map-context"></g>
+            <g id="map-countries" class="map-countries"></g>
+            <g class="map-labels" aria-live="polite">
+              <!--Australia, Fiji, Kiribati, Marshall Islands, Micronesia, Nauru, New Zealand, Palau, Papua New Guinea, Samoa, Solomon Islands, Tonga, Tuvalu, Vanuatu -->
+              <text id="label-australia" class="map-label" x="275" y="400">Australia</text>
+              <text id="label-fiji" class="map-label" x="650" y="340">Fiji</text>
+              <text id="label-kiribati" class="map-label" x="750" y="160">Kiribati</text>
+              <text id="label-marshall-islands" class="map-label" x="550" y="70">Marshall Islands</text>
+              <text id="label-micronesia" class="map-label" x="410" y="80">Micronesia</text>
+              <text id="label-nauru" class="map-label" x="540" y="150">Nauru</text>
+              <text id="label-new-zealand" class="map-label" x="650" y="580">New Zealand</text>
+              <text id="label-palau" class="map-label" x="280" y="120">Palau</text>
+              <text id="label-papua-new-guinea" class="map-label" x="400" y="160">Papua New Guinea</text>
+              <text id="label-samoa" class="map-label" x="730" y="300">Samoa</text>
+              <text id="label-solomon-islands" class="map-label" x="550" y="220">Solomon Islands</text>
+              <text id="label-tonga" class="map-label" x="700" y="370">Tonga</text>
+              <text id="label-tuvalu" class="map-label" x="645" y="240">Tuvalu</text>
+              <text id="label-vanuatu" class="map-label" x="610" y="300">Vanuatu</text>
+            </g>
+          </svg>
+        </div>
+
+        <aside class="control-panel">
+          <form id="guess-form" class="guess-form">
+            <label for="guess-input">Country name</label>
+            <div class="input-row">
+              <input id="guess-input" name="guess" type="text" autocomplete="off" placeholder="e.g. Australia" required />
+              <button type="submit">Guess</button>
+            </div>
+          </form>
+          <p id="message" class="message" aria-live="polite">Every correct answer fills part of the map.</p>
+          <div class="rules">
+            <p><strong>How to play</strong></p>
+            <p>Type countries in any order. Common names and abbreviations are accepted.</p>
+          </div>
+          <button id="give-up-btn" class="give-up-button" type="button">Reveal answers</button>
+          <button id="map-play-again-btn" class="give-up-button hidden" type="button">Play again</button>
+        </aside>
+      </section>
+
+      <section id="missing-section" class="missing-section hidden" aria-live="polite">
+        <h2>Countries to review</h2>
+        <p id="missing-copy"></p>
+        <ul id="missing-list"></ul>
+      </section>
+    </main>
+
+    <section id="end-screen" class="end-screen hidden" role="dialog" aria-modal="true" aria-labelledby="end-title">
+      <div class="end-card">
+        <p class="eyebrow">Quiz complete</p>
+        <h2 id="end-title">Congratulations!</h2>
+        <p id="end-score">You found all 14 countries.</p>
+        <button id="play-again-btn" type="button">Play again</button>
+        <button id="exit-end-screen-btn" type="button">View map</button>
+      </div>
+    </section>
+
+    <script src="OceaniaQuiz.js"></script>
+  </body>
+</html>

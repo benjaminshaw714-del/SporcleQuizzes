@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Countries of North America Quiz</title>
+    <link rel="stylesheet" href="NorthAmericaQuizStyles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="app-header">
+        <div>
+          <h1>Countries of North America</h1>
+        </div>
+        <div class="stats" aria-label="Quiz status">
+          <div class="stat-block">
+            <span class="stat-label">Score</span>
+            <strong id="score">0 / 23</strong>
+          </div>
+          <div class="stat-block timer-block">
+            <span class="stat-label">Time left</span>
+            <strong id="timer">10:00</strong>
+          </div> 
+        </div>
+      </header>
+
+      <section class="quiz-layout" aria-label="Country quiz">
+        <div class="map-panel">
+          <div class="panel-heading">
+            <span class="map-key"><span class="key-swatch"></span> Correct</span>
+          </div>
+
+          <svg id="north-america-map" class="map" viewBox="0 0 1200 620" role="img" aria-label="North America country quiz map" aria-describedby="map-description">
+            <desc id="map-description">Accurate country boundaries on a blue ocean. Each country changes color when its name is guessed.</desc>
+            <rect class="map-ocean" x="0" y="0" width="1200" height="620"></rect>
+            <g id="map-context" class="map-context"></g>
+            <g id="map-countries" class="map-countries"></g>
+            <g class="map-labels" aria-live="polite">
+              <text id="label-canada" class="map-label" x="600" y="232">Canada</text>
+              <text id="label-united-states" class="map-label" x="620" y="358">United States</text>
+              <text id="label-mexico" class="map-label" x="580" y="460">Mexico</text>
+              <text id="label-guatemala" class="map-label" x="650" y="555">Guatemala</text>
+              <text id="label-belize" class="map-label" x="740" y="525">Belize</text>
+              <text id="label-honduras" class="map-label" x="745" y="540">Honduras</text>
+              <text id="label-el-salvador" class="map-label" x="670" y="570">El Salvador</text>
+              <text id="label-nicaragua" class="map-label" x="785" y="560">Nicaragua</text>
+              <text id="label-costa-rica" class="map-label" x="710" y="600">Costa Rica</text>
+              <text id="label-panama" class="map-label" x="795" y="580">Panama</text>
+              <text id="label-cuba" class="map-label" x="800" y="495">Cuba</text>
+              <text id="label-bahamas" class="map-label" x="840" y="450">Bahamas</text>
+              <text id="label-barbados" class="map-label" x="990" y="540">Barbados</text>
+              <text id="label-jamaica" class="map-label" x="800" y="530">Jamaica</text>
+              <text id="label-haiti" class="map-label" x="830" y="515">Haiti</text>
+              <text id="label-dominican-republic" class="map-label" x="930" y="500">Dominican Republic</text>
+              <text id="label-antigua-and-barbuda" class="map-label" x="990" y="510">Antigua and Barbuda</text>
+              <text id="label-dominica" class="map-label" x="970" y="520">Dominica</text>
+              <text id="label-saint-kitts-and-nevis" class="map-label" x="860" y="540">Saint Kitts and Nevis</text>
+              <text id="label-saint-lucia" class="map-label" x="990" y="530">Saint Lucia</text>
+              <text id="label-saint-vincent-and-the-grenadines" class="map-label" x="1070" y="570">Saint Vincent and the Grenadines</text>
+              <text id="label-grenada" class="map-label" x="910" y="560">Grenada</text>
+              <text id="label-trinidad-and-tobago" class="map-label" x="1020" y="590">Trinidad and Tobago</text>
+            </g>
+          </svg>
+        </div>
+
+        <aside class="control-panel">
+          <form id="guess-form" class="guess-form">
+            <label for="guess-input">Country name</label>
+            <div class="input-row">
+              <input id="guess-input" name="guess" type="text" autocomplete="off" placeholder="e.g. Mexico" required />
+              <button type="submit">Guess</button>
+            </div>
+          </form>
+          <p id="message" class="message" aria-live="polite">Every correct answer fills part of the map.</p>
+          <div class="rules">
+            <p><strong>How to play</strong></p>
+            <p>Type countries in any order. Common names and abbreviations are accepted.</p>
+          </div>
+          <button id="give-up-btn" class="give-up-button" type="button">Reveal answers</button>
+          <button id="map-play-again-btn" class="give-up-button hidden" type="button">Play again</button>
+        </aside>
+      </section>
+
+      <section id="missing-section" class="missing-section hidden" aria-live="polite">
+        <h2>Countries to review</h2>
+        <p id="missing-copy"></p>
+        <ul id="missing-list"></ul>
+      </section>
+    </main>
+
+    <section id="end-screen" class="end-screen hidden" role="dialog" aria-modal="true" aria-labelledby="end-title">
+      <div class="end-card">
+        <p class="eyebrow">Quiz complete</p>
+        <h2 id="end-title">Congratulations!</h2>
+        <p id="end-score">You found all 23 countries.</p>
+        <button id="play-again-btn" type="button">Play again</button>
+        <button id="exit-end-screen-btn" type="button">View map</button>
+      </div>
+    </section>
+
+    <script src="NorthAmericaQuiz.js"></script>
+  </body>
+</html>

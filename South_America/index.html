@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Countries of South America Quiz</title>
+    <link rel="stylesheet" href="SouthAmericaQuizStyles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="app-header">
+        <div>
+          <h1>Countries of South America</h1>
+        </div>
+        <div class="stats" aria-label="Quiz status">
+          <div class="stat-block">
+            <span class="stat-label">Score</span>
+            <strong id="score">0 / 12</strong>
+          </div>
+          <div class="stat-block timer-block">
+            <span class="stat-label">Time left</span>
+            <strong id="timer">10:00</strong>
+          </div> 
+        </div>
+      </header>
+
+      <section class="quiz-layout" aria-label="Country quiz">
+        <div class="map-panel">
+          <div class="panel-heading">
+            <span class="map-key"><span class="key-swatch"></span> Correct</span>
+          </div>
+
+          <svg id="south-america-map" class="map" viewBox="0 0 700 1000" role="img" aria-label="South America country quiz map" aria-describedby="map-description">
+            <desc id="map-description">Accurate country boundaries on a blue ocean. Each country changes color when its name is guessed.</desc>
+            <rect class="map-ocean" x="0" y="0" width="700" height="1000"></rect>
+            <g id="map-context" class="map-context"></g>
+            <g id="map-countries" class="map-countries"></g>
+            <g class="map-labels" aria-live="polite">
+              <!--Argentina, Bolivia, Brazil, Chile, Colombia, Ecuador, Guyana, Paraguay, Peru, Suriname, Uruguay, and Venezuela -->
+              <text id="label-argentina" class="map-label" x="303" y="675">Argentina</text>
+              <text id="label-bolivia" class="map-label" x="295" y="462">Bolivia</text>
+              <text id="label-brazil" class="map-label" x="432" y="375">Brazil</text>
+              <text id="label-chile" class="map-label" x="185" y="625">Chile</text>
+              <text id="label-colombia" class="map-label" x="198" y="200">Colombia</text>
+              <text id="label-ecuador" class="map-label" x="140" y="269">Ecuador</text>
+              <text id="label-guyana" class="map-label" x="395" y="150">Guyana</text>
+              <text id="label-paraguay" class="map-label" x="360" y="538">Paraguay</text>
+              <text id="label-peru" class="map-label" x="175" y="375">Peru</text>
+              <text id="label-suriname" class="map-label" x="430" y="170">Suriname</text>
+              <text id="label-uruguay" class="map-label" x="397" y="663">Uruguay</text>
+              <text id="label-venezuela" class="map-label" x="280" y="150">Venezuela</text>
+            </g>
+          </svg>
+        </div>
+
+        <aside class="control-panel">
+          <form id="guess-form" class="guess-form">
+            <label for="guess-input">Country name</label>
+            <div class="input-row">
+              <input id="guess-input" name="guess" type="text" autocomplete="off" placeholder="e.g. Brazil" required />
+              <button type="submit">Guess</button>
+            </div>
+          </form>
+          <p id="message" class="message" aria-live="polite">Every correct answer fills part of the map.</p>
+          <div class="rules">
+            <p><strong>How to play</strong></p>
+            <p>Type countries in any order. Common names and abbreviations are accepted.</p>
+          </div>
+          <button id="give-up-btn" class="give-up-button" type="button">Reveal answers</button>
+          <button id="map-play-again-btn" class="give-up-button hidden" type="button">Play again</button>
+        </aside>
+      </section>
+
+      <section id="missing-section" class="missing-section hidden" aria-live="polite">
+        <h2>Countries to review</h2>
+        <p id="missing-copy"></p>
+        <ul id="missing-list"></ul>
+      </section>
+    </main>
+
+    <section id="end-screen" class="end-screen hidden" role="dialog" aria-modal="true" aria-labelledby="end-title">
+      <div class="end-card">
+        <p class="eyebrow">Quiz complete</p>
+        <h2 id="end-title">Congratulations!</h2>
+        <p id="end-score">You found all 12 countries.</p>
+        <button id="play-again-btn" type="button">Play again</button>
+        <button id="exit-end-screen-btn" type="button">View map</button>
+      </div>
+    </section>
+
+    <script src="SouthAmericaQuiz.js"></script>
+  </body>
+</html>
