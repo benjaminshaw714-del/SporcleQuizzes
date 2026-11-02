@@ -1,0 +1,1 @@
+I got tired of doing quizzes on Sporcle with ads, so I created my own versions and learned basic web development in the process. Go to this link to try the quizzes I made: https://benjaminshaw714-del.github.io/SporcleQuizzes
